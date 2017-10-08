@@ -10,6 +10,7 @@ import adatkezeles.EmberFajlbolInput;
 import adatkezeles.KutyuFajlbolInput;
 import javax.swing.DefaultListModel;
 import alaposztalyok.*;
+import java.net.URI;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,8 +23,8 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class MobilJPanel extends javax.swing.JPanel {
 
-    public static final String EMBER_FILE = "emberek.txt";
-    public static final String KUTYU_FILE = "kutyuk.txt";
+    public static final String EMBER_FILE = "/adatok/emberek.txt";
+    public static final String KUTYU_FILE = "/adatok/kutyuk.txt";
     DefaultListModel<Ember> emberekModel = new DefaultListModel<>();
     DefaultComboBoxModel<Kutyu> kutyukModel = new DefaultComboBoxModel<>();
     Random rand = new Random();
@@ -50,10 +51,13 @@ public class MobilJPanel extends javax.swing.JPanel {
     
     void fixFajlbol() {
         try {
-            emberekModel = new EmberFajlbolInput(EMBER_FILE).adatModel();
+            URI utvonal = this.getClass().getResource(EMBER_FILE).toURI();
+            System.out.println(utvonal);
+            emberekModel = new EmberFajlbolInput(utvonal).adatModel();
             emberJList.setModel(emberekModel);
             
-            kutyukModel = new KutyuFajlbolInput(KUTYU_FILE).adatModel();
+            utvonal = this.getClass().getResource(KUTYU_FILE).toURI();
+            kutyukModel = new KutyuFajlbolInput(utvonal).adatModel();
             kutyuJComboBox.setModel(kutyukModel);
         } catch (Exception ex) {
             Logger.getLogger(MobilJPanel.class.getName()).log(Level.SEVERE, null, ex);

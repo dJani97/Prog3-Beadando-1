@@ -10,6 +10,7 @@ import alaposztalyok.Mobiltelefon;
 import alaposztalyok.Okostelefon;
 import java.io.File;
 import java.io.InputStream;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,10 +21,10 @@ import javax.swing.DefaultListModel;
 
 public class KutyuFajlbolInput implements AdatInput <Kutyu> {
     
-    private String fajlUtvonal;
+    private URI fajlUtvonal;
     private String CHAR_SET = "UTF-8";
 
-    public KutyuFajlbolInput(String fajlUtvonal) {
+    public KutyuFajlbolInput(URI fajlUtvonal) {
         this.fajlUtvonal = fajlUtvonal;
     }
 

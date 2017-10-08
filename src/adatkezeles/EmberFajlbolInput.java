@@ -8,6 +8,7 @@ package adatkezeles;
 import alaposztalyok.Ember;
 import java.io.File;
 import java.io.InputStream;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,10 +18,12 @@ import javax.swing.DefaultListModel;
 
 public class EmberFajlbolInput implements AdatInput <Ember> {
     
-    private String fajlUtvonal;
+    private URI fajlUtvonal;
     private String CHAR_SET = "UTF-8";
+    
+    
 
-    public EmberFajlbolInput(String fajlUtvonal) {
+    public EmberFajlbolInput(URI fajlUtvonal) {
         this.fajlUtvonal = fajlUtvonal;
     }
 
