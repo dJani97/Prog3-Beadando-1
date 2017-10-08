@@ -11,6 +11,8 @@ package alaposztalyok;
  */
 public class Okostelefon extends Mobiltelefon{
     
+    public static double max_internet_ido;
+    
     private String operaciosRendszer;
     private boolean WiFiElerheto;
     private int netezesselToltottIdo;

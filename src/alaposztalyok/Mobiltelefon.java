@@ -11,10 +11,11 @@ package alaposztalyok;
  */
 public class Mobiltelefon implements Kutyu{
 
+    public static double billentyuEro;
+    
     private String tipus;
     private int sorszam;
     private int kuldottUzenetekMerete;
-    public static double billentyuEro;
     private static int sorszam_szamlalo = 0;
 
     public Mobiltelefon(String tipus) {

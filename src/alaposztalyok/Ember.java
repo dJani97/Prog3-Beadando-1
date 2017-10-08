@@ -54,7 +54,7 @@ public class Ember {
     public String diagnozis(){
         String eredmeny = "";
         
-        eredmeny += (this.huvelykujjEro() < sejtHatar) ? "normális" : "kóros hüvelykujjhasználat" ;
+        eredmeny += (this.huvelykujjEro() < sejtHatar) ? "normális, " : "kóros hüvelykujjhasználat, " ;
         eredmeny += "\n";
         eredmeny += (this.netIdo()< fuggosegiHatar) ? "normális" : "kóros netfüggő" ;
         

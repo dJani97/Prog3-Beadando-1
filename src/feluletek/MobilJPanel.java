@@ -47,6 +47,16 @@ public class MobilJPanel extends javax.swing.JPanel {
     public MobilJPanel() {
         this.setSize(MainFrame.MAGASSAG, MainFrame.SZELESSEG);
         initComponents();
+        
+        statikusBeallitas();
+    }
+    
+    void statikusBeallitas(){
+        Ember.fuggosegiHatar = FUGGOSEG_HATAR;
+        Ember.sejtHatar = SEJT_HATAR;
+        Mobiltelefon.billentyuEro = MOBIL_BILLENTYU_ERO;
+        Okostelefon.billentyuEro = OKOS_TEL_BILLENTYU_ERO;
+        Okostelefon.max_internet_ido = MAX_INTERNET_IDO;
     }
     
     void fixFajlbol() {
@@ -63,7 +73,7 @@ public class MobilJPanel extends javax.swing.JPanel {
             Logger.getLogger(MobilJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        printModels();
+        // printModels();
     }
     
     void printModels(){
@@ -164,11 +174,11 @@ public class MobilJPanel extends javax.swing.JPanel {
     private void kutyuJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kutyuJComboBoxActionPerformed
         
         Kutyu valasztottKutyu = (Kutyu) kutyuJComboBox.getSelectedItem();
+        Ember randomEmber;
         
         for (int i = 0; i < rand.nextInt(MAX_TELEFON_DB); i++) {
             
-            int randomEmberIndex = rand.nextInt(emberekModel.getSize());
-            Ember randomEmber = emberekModel.getElementAt(randomEmberIndex);
+            randomEmber = emberekModel.getElementAt(rand.nextInt(emberekModel.getSize()));
             
             randomEmber.kutyutVesz(valasztottKutyu.masolat());
             
@@ -178,24 +188,36 @@ public class MobilJPanel extends javax.swing.JPanel {
 
     private void emberJListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emberJListMouseClicked
         
-        /* Debug célokra:
         Ember valasztott = (Ember) emberJList.getSelectedValue();
+        DiagnozisjLabel.setText(valasztott.diagnozis());
+        
+        /* Debug célokra:
         System.out.println(valasztott.getKutyuk());
         */
-        
-        
-        
-        
     }//GEN-LAST:event_emberJListMouseClicked
 
     private void hasznalatjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hasznalatjButtonActionPerformed
         
-        for (int i = 0; i < rand.nextInt(HASZNALAT_SZAM); i++) {
-            
-            int randomEmberIndex = rand.nextInt(emberekModel.getSize());
-            
-        }
+        Ember randomEmber;
+        Kutyu randomKutyu;
+        int kutyuSzam;
         
+        for (int i = 0; i < rand.nextInt(HASZNALAT_SZAM); i++) {
+            randomEmber = emberekModel.getElementAt(rand.nextInt(emberekModel.getSize()));
+            kutyuSzam = randomEmber.getKutyuk().size();
+            if(kutyuSzam > 0){
+                randomKutyu = randomEmber.getKutyuk().get(rand.nextInt(kutyuSzam));
+                randomKutyu.uzenetetKuld(rand.nextInt(MAX_UZENETHOSSZ));
+                if(randomKutyu instanceof Okostelefon){
+                    if(rand.nextDouble() > SZAZALEK){
+                        ((Okostelefon) randomKutyu).kapcsolodik();
+                    } else {
+                        ((Okostelefon) randomKutyu).lekapcsolodik();
+                    }
+                    ((Okostelefon) randomKutyu).internetezik(rand.nextInt(MAX_INTERNET_IDO));
+                }
+            }
+        }
     }//GEN-LAST:event_hasznalatjButtonActionPerformed
 
 
