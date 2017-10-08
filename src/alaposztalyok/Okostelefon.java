@@ -12,7 +12,7 @@ package alaposztalyok;
 public class Okostelefon extends Mobiltelefon{
     
     private String operaciosRendszer;
-    private boolean vanWiFi;
+    private boolean WiFiElerheto;
     private int netezesselToltottIdo;
 
     public int getNetezesselToltottIdo() {
@@ -25,17 +25,21 @@ public class Okostelefon extends Mobiltelefon{
     }
     
     public void kapcsolodik(){
-        vanWiFi = true;
+        WiFiElerheto = true;
     }
     
     public void lekapcsolodik(){
-        vanWiFi = false;
+        WiFiElerheto = false;
     }
     
     public void internetezik(int ido){
-        if(vanWiFi){
+        if(WiFiElerheto){
             netezesselToltottIdo += ido;
         }
+    }
+
+    public boolean isWiFiElerheto() {
+        return WiFiElerheto;
     }
 
     @Override

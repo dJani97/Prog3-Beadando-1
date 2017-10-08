@@ -20,16 +20,17 @@ public class Ember {
     private String nev;
     private String szemSzam;
     private List<Kutyu> kutyuk = new ArrayList<>();
+
+
+    public Ember(String nev, String szemSzam) {
+        this.nev = nev;
+        this.szemSzam = szemSzam;
+    }
     
     public void kutyutVesz(Kutyu kutyu){
         if(!kutyuk.contains(kutyu)){
             this.kutyuk.add(kutyu);
         }
-    }
-
-    public Ember(String nev, String szemSzam) {
-        this.nev = nev;
-        this.szemSzam = szemSzam;
     }
     
     public int huvelykujjEro(){
@@ -58,6 +59,10 @@ public class Ember {
         eredmeny += (this.netIdo()< fuggosegiHatar) ? "normális" : "kóros netfüggő" ;
         
         return eredmeny;
+    }
+
+    public List<Kutyu> getKutyuk() {
+        return new ArrayList<>(kutyuk);
     }
 
     @Override
