@@ -1,5 +1,6 @@
 # Compiled class file
-*.class
+# (ne ignorálja a Darcula LAF miatt!)
+#*.class
 
 # Log file
 *.log
