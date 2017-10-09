@@ -2,6 +2,9 @@
 # (ne ignorálja a Darcula LAF miatt!)
 #*.class
 
+# Dolphin fájljai
+*.directory
+
 # Log file
 *.log
 
