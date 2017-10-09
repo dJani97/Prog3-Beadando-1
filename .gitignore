@@ -1,6 +1,5 @@
 # Compiled class file
-# (ne ignorálja a Darcula LAF miatt!)
-#*.class
+*.class
 
 # Dolphin fájljai
 *.directory
@@ -15,12 +14,16 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+# (ne ignorálja a .jar-t a Darcula LAF miatt!)
+# *.jar
 *.war
 *.ear
 *.zip
 *.tar.gz
 *.rar
+
+#not working ignore:
+build/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*

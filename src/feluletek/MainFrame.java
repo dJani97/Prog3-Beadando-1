@@ -6,7 +6,6 @@
 package feluletek;
 
 import com.bulenkov.darcula.DarculaLaf;
-import com.sun.corba.se.impl.orbutil.closure.Constant;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
