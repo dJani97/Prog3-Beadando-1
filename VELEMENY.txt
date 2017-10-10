@@ -1,0 +1,17 @@
+János projectjét megpillantván egyből feltűnt, hogy nagyon szép 'skint' használ (én is ezt a theme-et használom NetBeansben).
+Azonban, 2 monitort használván az is feltűnt, hogy a bal oldali monitor felső sarkába került inditás után a program, 
+továbbá, hogy nincsen a programnak neve (címe?). 
+Nagyon tetszett az, hogy interfacet haszálnt a Kutyuknél, bár ez indokolt is. 
+Apróság, már-már szőrszálhasogatás, de furán néz ki, hogy az Okostelefon getNetezesselToltottIdo() methodja
+a class elején foglal helyet, míg a többi getter (igazából csak 1 van ezen kívül) a végén.
+// Egyre inkább nézem a feladatot, egyre nehezebb nem arra gondolnom, hogy a kutyu itt egy kütyüre utal, s nem egy kutyára...
+Véleményem szerint a Rendezo class egy külön packagebe is kerülhetett volna.
+Adatkezeles package 2 classban is: CHAR_SET is not used... érdekes, akkor miért hoztra létre a 2 Stringet? 
+Egyes classokban mintha sok lenne az unnecessary enter, már írom is meg Jánosnak az alt+shift + f kombinációt. (Ironikus, mert lehet, hogy nálam is előfordul ez a "hiba"..)
+void printModels() a MobilJPanel classban, úgy látom, ez a method sehol sincs használva, csak egyszer van callolva, s az ki van commentelve. (feltételezem debuggolásra volt használva)
+Nem értem, miért van a Rendezo classban setNovekvo setter, ha mindig csökkenő sorrendbe kell rendezni, habár igy future proofabb, készen áll a növekvő sorrendre is, egy leendő updatere, ezt el kell ismernem.
+Úgy látom, ezektől eltekintve helyes az osztálystruktúra, s az egyes classok is helyesnek tűnnek.
+A felület - mint korábban is megfogalmaztam - maximálisan esztétikus, olvasható betűszínek, betűméretek és a háttér is egy kellemes hatást ad.
+Teszt nyomát nem látom.
+
+Véleményezte - Csapó Péter, 2017. 10.10 21:02

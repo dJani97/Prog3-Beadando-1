@@ -13,53 +13,55 @@ import java.util.List;
  * @author djani
  */
 public class Ember {
-    
+
     public static int sejtHatar;
     public static int fuggosegiHatar;
-    public static enum KiegeszitoAdat {SZEMELYI_SZAM, HUVELYKUJJ_ERO}
-    
+
+    public static enum KiegeszitoAdat {
+        SZEMELYI_SZAM, HUVELYKUJJ_ERO
+    }
+
     private static KiegeszitoAdat kiegeszitoAdat = KiegeszitoAdat.SZEMELYI_SZAM;
     private String nev;
     private String szemSzam;
     private List<Kutyu> kutyuk = new ArrayList<>();
 
-
     public Ember(String nev, String szemSzam) {
         this.nev = nev;
         this.szemSzam = szemSzam;
     }
-    
-    public void kutyutVesz(Kutyu kutyu){
-        if(!kutyuk.contains(kutyu)){
+
+    public void kutyutVesz(Kutyu kutyu) {
+        if (!kutyuk.contains(kutyu)) {
             this.kutyuk.add(kutyu);
         }
     }
-    
-    public int huvelykujjEro(){
+
+    public int huvelykujjEro() {
         int osszeg = 0;
-        for(Kutyu kutyu : kutyuk){
+        for (Kutyu kutyu : kutyuk) {
             osszeg += kutyu.huvelykujjSejtek();
         }
         return osszeg;
     }
-    
-    public int netIdo(){
+
+    public int netIdo() {
         int osszeg = 0;
-        for(Kutyu kutyu : kutyuk){
-            if(kutyu instanceof Okostelefon){
+        for (Kutyu kutyu : kutyuk) {
+            if (kutyu instanceof Okostelefon) {
                 osszeg += ((Okostelefon) kutyu).getNetezesselToltottIdo();
             }
         }
         return osszeg;
     }
-    
-    public String diagnozis(){
+
+    public String diagnozis() {
         String eredmeny = "";
-        
-        eredmeny += (this.huvelykujjEro() < sejtHatar) ? "normális, " : "kóros hüvelykujjhasználat, " ;
+
+        eredmeny += (this.huvelykujjEro() < sejtHatar) ? "normális, " : "kóros hüvelykujjhasználat, ";
         eredmeny += "\n";
-        eredmeny += (this.netIdo()< fuggosegiHatar) ? "normális" : "kóros netfüggő" ;
-        
+        eredmeny += (this.netIdo() < fuggosegiHatar) ? "normális" : "kóros netfüggő";
+
         return eredmeny;
     }
 
@@ -77,19 +79,16 @@ public class Ember {
 
     @Override
     public String toString() {
-        switch(kiegeszitoAdat){
+        switch (kiegeszitoAdat) {
             case HUVELYKUJJ_ERO:
                 return nev + "; hüvelykerő: " + huvelykujjEro();
-                
+
             case SZEMELYI_SZAM:
                 return nev + " (" + getSzemSzam() + ')';
-                
+
             default:
                 return nev;
         }
     }
-    
-    
-    
-    
+
 }

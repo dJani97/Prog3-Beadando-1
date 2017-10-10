@@ -7,14 +7,15 @@ package alaposztalyok;
 
 /**
  * Kütyü interfész, mely leírja egy Kütyü legfőbb jellemzőit.
+ *
  * @author djani
  */
 public interface Kutyu {
-        
+
     public void uzenetetKuld(int uzenetHossza);
-    
+
     public int huvelykujjSejtek();
-    
+
     public Kutyu masolat();
-    
+
 }

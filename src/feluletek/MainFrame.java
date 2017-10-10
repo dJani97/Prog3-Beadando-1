@@ -21,12 +21,15 @@ public class MainFrame extends javax.swing.JFrame {
     
     public static final int SZELESSEG = 600;
     public static final int MAGASSAG = 400;
+    public static final String CIM = "Mobilfónia";
 
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         this.setSize(SZELESSEG, MAGASSAG);
+        this.setTitle(CIM);
+        this.setLocationRelativeTo(this);
         initComponents();
     }
 
