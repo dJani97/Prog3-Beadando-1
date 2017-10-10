@@ -10,7 +10,11 @@ import adatkezeles.EmberFajlbolInput;
 import adatkezeles.KutyuFajlbolInput;
 import javax.swing.DefaultListModel;
 import alaposztalyok.*;
+import java.awt.List;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -241,11 +245,19 @@ public class MobilJPanel extends javax.swing.JPanel {
 
     private void rendezesjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rendezesjButtonActionPerformed
         
-        //Ember.rendezett = true;
+        Rendezo.setNovekvo(false);
+        
+        ArrayList<Ember> emberekLista = Collections.list(emberekModel.elements());
+        
+        emberekLista.sort(new Rendezo());
+        
+        emberekModel.clear();
+        for (Ember ember : emberekLista) {
+            emberekModel.addElement(ember);
+        }
+        
         Ember.setKiegeszitoAdat(Ember.KiegeszitoAdat.HUVELYKUJJ_ERO);
-        
-        
-        
+        emberJList.updateUI();
     }//GEN-LAST:event_rendezesjButtonActionPerformed
 
 
