@@ -1,6 +1,6 @@
 János projectjét megpillantván egyből feltűnt, hogy nagyon szép 'skint' használ (én is ezt a theme-et használom NetBeansben).
-Azonban, 2 monitort használván az is feltűnt, hogy a bal oldali monitor felső sarkába került inditás után a program, 
-továbbá, hogy nincsen a programnak neve (címe?). 
+FIXED: //Azonban, 2 monitort használván az is feltűnt, hogy a bal oldali monitor felső sarkába került inditás után a program, 
+// továbbá, hogy nincsen a programnak neve (címe?). 
 Nagyon tetszett az, hogy interfacet haszálnt a Kutyuknél, bár ez indokolt is. 
 Apróság, már-már szőrszálhasogatás, de furán néz ki, hogy az Okostelefon getNetezesselToltottIdo() methodja
 a class elején foglal helyet, míg a többi getter (igazából csak 1 van ezen kívül) a végén.
