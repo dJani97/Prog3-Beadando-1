@@ -37,6 +37,10 @@ public class Mobiltelefon implements Kutyu{
         return tipus;
     }
 
+    public int getKuldottUzenetekMerete() {
+        return kuldottUzenetekMerete;
+    }
+
     @Override
     public int huvelykujjSejtek() {
         return (int) (kuldottUzenetekMerete * billentyuEro);
