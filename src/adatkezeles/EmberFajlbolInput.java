@@ -29,7 +29,7 @@ public class EmberFajlbolInput implements AdatInput<Ember> {
         List<Ember> emberek = new ArrayList<>();
 
         try (
-                Scanner fajlScanner = new Scanner(new File(fajlUtvonal));) {
+                Scanner fajlScanner = new Scanner(new File(fajlUtvonal), CHAR_SET);) {
             /*
             Békési Judit;187354SE
              */

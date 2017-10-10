@@ -32,7 +32,7 @@ public class KutyuFajlbolInput implements AdatInput<Kutyu> {
         List<Kutyu> kutyuk = new ArrayList<>();
 
         try (
-                Scanner fajlScanner = new Scanner(new File(fajlUtvonal));) {
+                Scanner fajlScanner = new Scanner(new File(fajlUtvonal), CHAR_SET);) {
             /*
             Nokia Lumia;Windows Phone
             Nokia
