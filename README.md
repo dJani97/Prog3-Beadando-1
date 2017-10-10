@@ -9,6 +9,11 @@
  
 <h3>Képernyőképek</h3>
 
-<img src="https://i.imgur.com/UkAR2mu.png" alt="Beolvasás után">
+<img src="https://i.imgur.com/tknphPw.png" alt="Beolvasás után">
 
-<img src="https://i.imgur.com/qcJwbSD.png" alt="Diagnózis felállítása">
+<img src="https://i.imgur.com/nwicTPg.png" alt="Diagnózis felállítása">
+
+<h3>Felhasznált források</h3>
+
+ - <a href="https://github.com/Revivius/nb-darcula/">Darcula LAF for NetBeans</a>
+ - Órai anyag :)
