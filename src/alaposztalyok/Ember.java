@@ -16,7 +16,9 @@ public class Ember {
     
     public static int sejtHatar;
     public static int fuggosegiHatar;
+    public static enum KiegeszitoAdat {SZEMELYI_SZAM, HUVELYKUJJ_ERO}
     
+    private static KiegeszitoAdat kiegeszitoAdat = KiegeszitoAdat.SZEMELYI_SZAM;
     private String nev;
     private String szemSzam;
     private List<Kutyu> kutyuk = new ArrayList<>();
@@ -65,9 +67,26 @@ public class Ember {
         return new ArrayList<>(kutyuk);
     }
 
+    public String getSzemSzam() {
+        return szemSzam;
+    }
+
+    public static void setKiegeszitoAdat(KiegeszitoAdat kiegeszitoAdat) {
+        Ember.kiegeszitoAdat = kiegeszitoAdat;
+    }
+
     @Override
     public String toString() {
-        return nev + " (" + szemSzam + ')';
+        switch(kiegeszitoAdat){
+            case HUVELYKUJJ_ERO:
+                return nev + "; hüvelykerő:" + huvelykujjEro();
+                
+            case SZEMELYI_SZAM:
+                return nev + " (" + getSzemSzam() + ')';
+                
+            default:
+                return nev;
+        }
     }
     
     
