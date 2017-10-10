@@ -6,7 +6,7 @@
 package alaposztalyok;
 
 /**
- *
+ * Kütyü interfész, mely leírja egy Kütyü legfőbb jellemzőit.
  * @author djani
  */
 public interface Kutyu {

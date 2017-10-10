@@ -252,6 +252,7 @@ public class MobilJPanel extends javax.swing.JPanel {
         emberekLista.sort(new Rendezo());
         
         emberekModel.clear();
+        
         for (Ember ember : emberekLista) {
             emberekModel.addElement(ember);
         }
