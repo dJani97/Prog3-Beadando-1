@@ -42,14 +42,15 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         mobilJPanel1 = new feluletek.MobilJPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         fajlMenu = new javax.swing.JMenu();
         beolvasasMenuPont = new javax.swing.JMenuItem();
         kilepesMenuPont = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        rendezesMenu = new javax.swing.JMenu();
+        novekvojRadioButton = new javax.swing.JRadioButtonMenuItem();
+        csokkenojRadioButton = new javax.swing.JRadioButtonMenuItem();
         sugoMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,22 +75,23 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(fajlMenu);
 
-        jMenu1.setText("Rendezés");
+        rendezesMenu.setText("Rendezés");
 
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
-        jMenu1.add(jRadioButtonMenuItem1);
+        buttonGroup1.add(novekvojRadioButton);
+        novekvojRadioButton.setText("Növekvő");
+        rendezesMenu.add(novekvojRadioButton);
 
-        jRadioButtonMenuItem2.setSelected(true);
-        jRadioButtonMenuItem2.setText("jRadioButtonMenuItem2");
-        jMenu1.add(jRadioButtonMenuItem2);
+        buttonGroup1.add(csokkenojRadioButton);
+        csokkenojRadioButton.setSelected(true);
+        csokkenojRadioButton.setText("Csökkenő");
+        rendezesMenu.add(csokkenojRadioButton);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(rendezesMenu);
 
         sugoMenu.setText("Névjegy");
         sugoMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                sugoMenuMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                sugoMenuMousePressed(evt);
             }
         });
         jMenuBar1.add(sugoMenu);
@@ -120,13 +122,13 @@ public class MainFrame extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_kilepesMenuPontActionPerformed
 
-    private void sugoMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sugoMenuMouseClicked
-        JOptionPane.showMessageDialog(null, "Dobszai János\nI5D2TG", "Súgó", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_sugoMenuMouseClicked
-
     private void beolvasasMenuPontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beolvasasMenuPontActionPerformed
         mobilJPanel1.fixFajlbol();
     }//GEN-LAST:event_beolvasasMenuPontActionPerformed
+
+    private void sugoMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sugoMenuMousePressed
+        JOptionPane.showMessageDialog(null, "Dobszai János\nI5D2TG", "Súgó", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_sugoMenuMousePressed
 
     /**
      * @param args the command line arguments
@@ -180,13 +182,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem beolvasasMenuPont;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButtonMenuItem csokkenojRadioButton;
     private javax.swing.JMenu fajlMenu;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JMenuItem kilepesMenuPont;
     private feluletek.MobilJPanel mobilJPanel1;
+    private javax.swing.JRadioButtonMenuItem novekvojRadioButton;
+    private javax.swing.JMenu rendezesMenu;
     private javax.swing.JMenu sugoMenu;
     // End of variables declaration//GEN-END:variables
 }
