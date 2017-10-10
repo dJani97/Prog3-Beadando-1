@@ -37,6 +37,7 @@ public class MobilfoniaTeszt01 {
     
     Mobiltelefon tesztKutyu01;
     Okostelefon tesztKutyu02;
+    Okostelefon tesztKutyu03;
     Ember tesztEmber01;
     
     
@@ -61,6 +62,7 @@ public class MobilfoniaTeszt01 {
         
         tesztKutyu01 = new Mobiltelefon("Prototípus");
         tesztKutyu02 = new Okostelefon("Okos Prototípus", "Android 8.0");
+        tesztKutyu03 = new Okostelefon("Szifon", "AlmaOS 0.3");
         
         tesztEmber01 = new Ember("Jani", "010203TEST");
     }
@@ -77,26 +79,67 @@ public class MobilfoniaTeszt01 {
         tesztKutyu01.uzenetetKuld(uzenet);
         assertTrue(tesztKutyu01.getKuldottUzenetekMerete() == uzenet);
             
+        
         // a különböző osztályba tartozó telefonok ID-je is egyedi marad
         // nem indul osztályonként újból a számozás
         assertTrue(tesztKutyu01.getSorszam() < tesztKutyu02.getSorszam());
+        
         
         // a másolat nem azonos az eredetivel
         Kutyu masoltKutyu01 = tesztKutyu01.masolat();
         Kutyu masoltKutyu02 = tesztKutyu02.masolat();
         assertFalse(masoltKutyu01.equals(tesztKutyu01));
         assertFalse(masoltKutyu02.equals(tesztKutyu02));
+        
+        tesztKutyu02.kapcsolodik();
+        assertTrue(tesztKutyu02.isWiFiElerheto());
+        
+        tesztKutyu02.lekapcsolodik();
+        assertTrue( ! tesztKutyu02.isWiFiElerheto());
     }
     
     @Test
     public void emberTeszt(){
         
+        // Alapból nincs kütyüje és a hüvelykujj ereje is nulla
+        assertEquals(tesztEmber01.huvelykujjEro(), 0);
+        assertTrue(tesztEmber01.getKutyuk().isEmpty());
         
-        assertTrue(tesztEmber01.huvelykujjEro() == 0);
+        
+        // Ha egy ember megvesz egy kütyüt, akkor igaz-e,
+        // hogy növekszik eggyel a tulajdonában lévő kütyük száma?
+        tesztEmber01.kutyutVesz(tesztKutyu01);
+        assertEquals(tesztEmber01.getKutyuk().size(), 1);
         
         
+        //  Igaz-e, hogy ha egymás után két üzenetet küld, akkor összeadódik az üzenetek hossza?
+        int uzenet1 = 10;
+        int uzenet2 = 20;
+        tesztEmber01.getKutyuk().get(0).uzenetetKuld(uzenet1);
+        tesztEmber01.getKutyuk().get(0).uzenetetKuld(uzenet2);
+        assertTrue(((Mobiltelefon)tesztEmber01.getKutyuk().get(0)).getKuldottUzenetekMerete() == (uzenet1+uzenet2));
         
         
+        //  Igaz-e, hogy az ember hüvelykujjereje a hüvelykujj-sejtszámok összege      
+        tesztKutyu02.uzenetetKuld(uzenet1);
+        tesztEmber01.kutyutVesz(tesztKutyu02);
+        
+        int szamoltOsszeg = 0;
+        for (Kutyu kutyu : tesztEmber01.getKutyuk()) {
+            szamoltOsszeg += kutyu.huvelykujjSejtek();
+        }
+        assertEquals(tesztEmber01.huvelykujjEro(), szamoltOsszeg);
+        
+        
+        // Igaz-e, hogy a netezéssel töltött idő a kütyük netezési idejének összege?
+        tesztEmber01.kutyutVesz(tesztKutyu03);
+        int netIdoTeszt = 13;
+        tesztKutyu02.kapcsolodik();
+        tesztKutyu02.internetezik(netIdoTeszt);
+        tesztKutyu03.kapcsolodik();
+        tesztKutyu03.internetezik(netIdoTeszt);
+        
+        assertEquals(tesztEmber01.netIdo(), netIdoTeszt*2);
     }
     
     
