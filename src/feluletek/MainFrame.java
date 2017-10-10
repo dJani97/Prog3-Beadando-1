@@ -47,6 +47,9 @@ public class MainFrame extends javax.swing.JFrame {
         fajlMenu = new javax.swing.JMenu();
         beolvasasMenuPont = new javax.swing.JMenuItem();
         kilepesMenuPont = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
         sugoMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,6 +73,18 @@ public class MainFrame extends javax.swing.JFrame {
         fajlMenu.add(kilepesMenuPont);
 
         jMenuBar1.add(fajlMenu);
+
+        jMenu1.setText("Rendezés");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+        jMenu1.add(jRadioButtonMenuItem1);
+
+        jRadioButtonMenuItem2.setSelected(true);
+        jRadioButtonMenuItem2.setText("jRadioButtonMenuItem2");
+        jMenu1.add(jRadioButtonMenuItem2);
+
+        jMenuBar1.add(jMenu1);
 
         sugoMenu.setText("Névjegy");
         sugoMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,7 +181,10 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem beolvasasMenuPont;
     private javax.swing.JMenu fajlMenu;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JMenuItem kilepesMenuPont;
     private feluletek.MobilJPanel mobilJPanel1;
     private javax.swing.JMenu sugoMenu;
