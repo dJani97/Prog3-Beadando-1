@@ -14,14 +14,10 @@ import java.util.List;
 import java.util.Scanner;
 import javax.swing.DefaultListModel;
 
+public class EmberFajlbolInput implements AdatInput<Ember> {
 
-
-public class EmberFajlbolInput implements AdatInput <Ember> {
-    
     private URI fajlUtvonal;
     private String CHAR_SET = "UTF-8";
-    
-    
 
     public EmberFajlbolInput(URI fajlUtvonal) {
         this.fajlUtvonal = fajlUtvonal;
@@ -29,47 +25,45 @@ public class EmberFajlbolInput implements AdatInput <Ember> {
 
     @Override
     public List<Ember> adatLista() throws Exception {
-        
+
         List<Ember> emberek = new ArrayList<>();
-        
-        try(
-            Scanner fajlScanner = new Scanner(new File(fajlUtvonal));
-            ){
+
+        try (
+                Scanner fajlScanner = new Scanner(new File(fajlUtvonal));) {
             /*
             Békési Judit;187354SE
-            */
-            
+             */
+
             String adatok[];
             Ember ember = null;
-            
-            while(fajlScanner.hasNextLine()){
+
+            while (fajlScanner.hasNextLine()) {
                 adatok = fajlScanner.nextLine().split(";");
-                if(adatok.length == 2){
+                if (adatok.length == 2) {
                     ember = new Ember(adatok[0], adatok[1]);
                 } else {
                     ember = null;
                 }
-                
-                if(ember != null){
-                emberek.add(ember);
+
+                if (ember != null) {
+                    emberek.add(ember);
                 }
             }
-            
-            
-        } 
-        
+
+        }
+
         return emberek;
-        
+
     }
 
     @Override
     public DefaultListModel<Ember> adatModel() throws Exception {
         DefaultListModel<Ember> emberModel = new DefaultListModel<>();
-        
-        for(Ember ember : adatLista()){
+
+        for (Ember ember : adatLista()) {
             emberModel.addElement(ember);
         }
-        
+
         return emberModel;
     }
 }

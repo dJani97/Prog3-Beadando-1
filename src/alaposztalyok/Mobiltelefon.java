@@ -9,10 +9,10 @@ package alaposztalyok;
  *
  * @author djani
  */
-public class Mobiltelefon implements Kutyu{
+public class Mobiltelefon implements Kutyu {
 
     public static double billentyuEro;
-    
+
     private String tipus;
     private int sorszam;
     private int kuldottUzenetekMerete;
@@ -23,7 +23,7 @@ public class Mobiltelefon implements Kutyu{
         this.sorszam = sorszam_szamlalo;
         sorszam_szamlalo++;
     }
-    
+
     @Override
     public void uzenetetKuld(int uzenetHossza) {
         kuldottUzenetekMerete += uzenetHossza;
@@ -55,6 +55,5 @@ public class Mobiltelefon implements Kutyu{
     public Kutyu masolat() {
         return new Mobiltelefon(this.getTipus());
     }
-    
-    
+
 }

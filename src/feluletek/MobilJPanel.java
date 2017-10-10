@@ -32,11 +32,10 @@ public class MobilJPanel extends javax.swing.JPanel {
     DefaultListModel<Ember> emberekModel = new DefaultListModel<>();
     DefaultComboBoxModel<Kutyu> kutyukModel = new DefaultComboBoxModel<>();
     Random rand = new Random();
-    
-    
+
     // Feladat fájlból:
     private final int MAX_TELEFON_DB = 20; // kiválasztáskor max ennyi ember vásárol
-    private final int HASZNALAT_SZAM =100; // ennyiszer fut le a használat
+    private final int HASZNALAT_SZAM = 100; // ennyiszer fut le a használat
     private final int MAX_UZENETHOSSZ = 200;
     private final double SZAZALEK = 0.6; // ekkora eséllyel kapcsolódik az internethez
     private final int MAX_INTERNET_IDO = 200;
@@ -51,41 +50,41 @@ public class MobilJPanel extends javax.swing.JPanel {
     public MobilJPanel() {
         this.setSize(MainFrame.MAGASSAG, MainFrame.SZELESSEG);
         initComponents();
-        
+
         statikusBeallitas();
     }
-    
-    void statikusBeallitas(){
+
+    void statikusBeallitas() {
         Ember.fuggosegiHatar = FUGGOSEG_HATAR;
         Ember.sejtHatar = SEJT_HATAR;
         Mobiltelefon.billentyuEro = MOBIL_BILLENTYU_ERO;
         Okostelefon.billentyuEro = OKOS_TEL_BILLENTYU_ERO;
         Okostelefon.max_internet_ido = MAX_INTERNET_IDO;
     }
-    
+
     void fixFajlbol() {
         try {
             URI utvonal = this.getClass().getResource(EMBER_FILE).toURI();
             System.out.println(utvonal);
             emberekModel = new EmberFajlbolInput(utvonal).adatModel();
             emberJList.setModel(emberekModel);
-            
+
             utvonal = this.getClass().getResource(KUTYU_FILE).toURI();
             kutyukModel = new KutyuFajlbolInput(utvonal).adatModel();
             kutyuJComboBox.setModel(kutyukModel);
         } catch (Exception ex) {
             Logger.getLogger(MobilJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         // printModels();
     }
-    
-    void printModels(){
-        for(int i=0; i < emberekModel.size(); i++){
+
+    void printModels() {
+        for (int i = 0; i < emberekModel.size(); i++) {
             System.out.println(emberekModel.get(i));
         }
-        
-        for(int i=0; i < kutyukModel.getSize(); i++){
+
+        for (int i = 0; i < kutyukModel.getSize(); i++) {
             System.out.println(kutyukModel.getElementAt(i));
         }
     }
@@ -191,46 +190,47 @@ public class MobilJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void kutyuJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kutyuJComboBoxActionPerformed
-        
+
         Kutyu valasztottKutyu = (Kutyu) kutyuJComboBox.getSelectedItem();
         Ember randomEmber;
-        
+
         for (int i = 0; i < rand.nextInt(MAX_TELEFON_DB); i++) {
-            
+
             randomEmber = emberekModel.getElementAt(rand.nextInt(emberekModel.getSize()));
-            
+
             randomEmber.kutyutVesz(valasztottKutyu.masolat());
-            
+
         }
     }//GEN-LAST:event_kutyuJComboBoxActionPerformed
 
     private void emberJListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emberJListMouseClicked
-        
-        
+
         Ember valasztott = (Ember) emberJList.getSelectedValue();
         DiagnozisjLabel.setText(valasztott.diagnozis());
-        
+
         /* Debug célokra:
         System.out.println(valasztott.getKutyuk());
-        */
+         */
     }//GEN-LAST:event_emberJListMouseClicked
 
     private void hasznalatjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hasznalatjButtonActionPerformed
-        
-        if(emberekModel.getSize() < 1){ return; }
-        
+
+        if (emberekModel.getSize() < 1) {
+            return;
+        }
+
         Ember randomEmber;
         Kutyu randomKutyu;
         int kutyuSzam;
-        
+
         for (int i = 0; i < rand.nextInt(HASZNALAT_SZAM); i++) {
             randomEmber = emberekModel.getElementAt(rand.nextInt(emberekModel.getSize()));
             kutyuSzam = randomEmber.getKutyuk().size();
-            if(kutyuSzam > 0){
+            if (kutyuSzam > 0) {
                 randomKutyu = randomEmber.getKutyuk().get(rand.nextInt(kutyuSzam));
                 randomKutyu.uzenetetKuld(rand.nextInt(MAX_UZENETHOSSZ));
-                if(randomKutyu instanceof Okostelefon){
-                    if(rand.nextDouble() > SZAZALEK){
+                if (randomKutyu instanceof Okostelefon) {
+                    if (rand.nextDouble() > SZAZALEK) {
                         ((Okostelefon) randomKutyu).kapcsolodik();
                     } else {
                         ((Okostelefon) randomKutyu).lekapcsolodik();
@@ -239,25 +239,25 @@ public class MobilJPanel extends javax.swing.JPanel {
                 }
             }
         }
-        
+
         emberJList.updateUI();
     }//GEN-LAST:event_hasznalatjButtonActionPerformed
 
-    public void rendezes(){
+    public void rendezes() {
         ArrayList<Ember> emberekLista = Collections.list(emberekModel.elements());
-        
+
         emberekLista.sort(new Rendezo());
-        
+
         emberekModel.clear();
-        
+
         for (Ember ember : emberekLista) {
             emberekModel.addElement(ember);
         }
-        
+
         Ember.setKiegeszitoAdat(Ember.KiegeszitoAdat.HUVELYKUJJ_ERO);
         emberJList.updateUI();
     }
-    
+
     private void rendezesjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rendezesjButtonActionPerformed
         rendezes();
     }//GEN-LAST:event_rendezesjButtonActionPerformed

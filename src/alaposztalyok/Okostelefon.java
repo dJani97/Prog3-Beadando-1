@@ -9,39 +9,43 @@ package alaposztalyok;
  *
  * @author djani
  */
-public class Okostelefon extends Mobiltelefon{
-    
+public class Okostelefon extends Mobiltelefon {
+
     public static double max_internet_ido;
-    
+
     private String operaciosRendszer;
     private boolean WiFiElerheto;
     private int netezesselToltottIdo;
-
-    public int getNetezesselToltottIdo() {
-        return netezesselToltottIdo;
-    }
 
     public Okostelefon(String tipus, String operaciosRendszer) {
         super(tipus);
         this.operaciosRendszer = operaciosRendszer;
     }
-    
-    public void kapcsolodik(){
+
+    public void kapcsolodik() {
         WiFiElerheto = true;
     }
-    
-    public void lekapcsolodik(){
+
+    public void lekapcsolodik() {
         WiFiElerheto = false;
     }
-    
-    public void internetezik(int ido){
-        if(WiFiElerheto){
+
+    public void internetezik(int ido) {
+        if (WiFiElerheto) {
             netezesselToltottIdo += ido;
         }
     }
 
     public boolean isWiFiElerheto() {
         return WiFiElerheto;
+    }
+
+    public String getOperaciosRendszer() {
+        return operaciosRendszer;
+    }
+
+    public int getNetezesselToltottIdo() {
+        return netezesselToltottIdo;
     }
 
     @Override
@@ -53,9 +57,4 @@ public class Okostelefon extends Mobiltelefon{
     public Kutyu masolat() {
         return new Okostelefon(this.getTipus(), this.getOperaciosRendszer());
     }
-
-    public String getOperaciosRendszer() {
-        return operaciosRendszer;
-    }
-    
 }

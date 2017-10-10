@@ -15,20 +15,18 @@ public class Rendezo implements Comparator<Ember> {
 
     private static boolean novekvo = false;
 
-    
     public static void setNovekvo(boolean novekvo) {
         Rendezo.novekvo = novekvo;
     }
-    
-    
+
     @Override
     public int compare(Ember o1, Ember o2) {
 
-        if(novekvo){
+        if (novekvo) {
             return o1.huvelykujjEro() - o2.huvelykujjEro();
         } else {
             return o2.huvelykujjEro() - o1.huvelykujjEro();
         }
-        
+
     }
 }

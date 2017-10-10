@@ -18,7 +18,7 @@ import javax.swing.plaf.basic.BasicLookAndFeel;
  * @author djani
  */
 public class MainFrame extends javax.swing.JFrame {
-    
+
     public static final int SZELESSEG = 600;
     public static final int MAGASSAG = 400;
     public static final String CIM = "Mobilfónia";
@@ -143,7 +143,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void novekvojRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novekvojRadioButtonActionPerformed
         alaposztalyok.Rendezo.setNovekvo(true);
         mobilJPanel1.rendezes();
-        
+
     }//GEN-LAST:event_novekvojRadioButtonActionPerformed
 
     private void csokkenojRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csokkenojRadioButtonActionPerformed
@@ -155,16 +155,15 @@ public class MainFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         /*  ___ DARCULA TÉMA BEÁLLÍTÁSA ___  */
-        
         BasicLookAndFeel laf = new DarculaLaf();
         try {
             UIManager.setLookAndFeel(laf);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         /* Set the Nimbus look and feel --- ___ KIKOMMENTELVE! ___ */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -192,7 +191,6 @@ public class MainFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }*/
         //</editor-fold>
-        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
