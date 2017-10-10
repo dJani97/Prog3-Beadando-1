@@ -79,11 +79,21 @@ public class MainFrame extends javax.swing.JFrame {
 
         buttonGroup1.add(novekvojRadioButton);
         novekvojRadioButton.setText("Növekvő");
+        novekvojRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novekvojRadioButtonActionPerformed(evt);
+            }
+        });
         rendezesMenu.add(novekvojRadioButton);
 
         buttonGroup1.add(csokkenojRadioButton);
         csokkenojRadioButton.setSelected(true);
         csokkenojRadioButton.setText("Csökkenő");
+        csokkenojRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                csokkenojRadioButtonActionPerformed(evt);
+            }
+        });
         rendezesMenu.add(csokkenojRadioButton);
 
         jMenuBar1.add(rendezesMenu);
@@ -129,6 +139,17 @@ public class MainFrame extends javax.swing.JFrame {
     private void sugoMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sugoMenuMousePressed
         JOptionPane.showMessageDialog(null, "Dobszai János\nI5D2TG", "Súgó", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_sugoMenuMousePressed
+
+    private void novekvojRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novekvojRadioButtonActionPerformed
+        alaposztalyok.Rendezo.setNovekvo(true);
+        mobilJPanel1.rendezes();
+        
+    }//GEN-LAST:event_novekvojRadioButtonActionPerformed
+
+    private void csokkenojRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csokkenojRadioButtonActionPerformed
+        alaposztalyok.Rendezo.setNovekvo(false);
+        mobilJPanel1.rendezes();
+    }//GEN-LAST:event_csokkenojRadioButtonActionPerformed
 
     /**
      * @param args the command line arguments

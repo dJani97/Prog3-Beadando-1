@@ -243,10 +243,7 @@ public class MobilJPanel extends javax.swing.JPanel {
         emberJList.updateUI();
     }//GEN-LAST:event_hasznalatjButtonActionPerformed
 
-    private void rendezesjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rendezesjButtonActionPerformed
-        
-        Rendezo.setNovekvo(false);
-        
+    public void rendezes(){
         ArrayList<Ember> emberekLista = Collections.list(emberekModel.elements());
         
         emberekLista.sort(new Rendezo());
@@ -259,6 +256,10 @@ public class MobilJPanel extends javax.swing.JPanel {
         
         Ember.setKiegeszitoAdat(Ember.KiegeszitoAdat.HUVELYKUJJ_ERO);
         emberJList.updateUI();
+    }
+    
+    private void rendezesjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rendezesjButtonActionPerformed
+        rendezes();
     }//GEN-LAST:event_rendezesjButtonActionPerformed
 
 
