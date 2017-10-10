@@ -133,7 +133,7 @@ public class MobilJPanel extends javax.swing.JPanel {
         jLabel2.setText("Telefonválaszték");
 
         DiagnozisjLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DiagnozisjLabel.setText("                     ");
+        DiagnozisjLabel.setText("Kérem válasszon egy személyt a diagnózishoz!");
 
         rendezesjButton.setText("Rendezés");
         rendezesjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +182,7 @@ public class MobilJPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(DiagnozisjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,10 +198,10 @@ public class MobilJPanel extends javax.swing.JPanel {
             randomEmber.kutyutVesz(valasztottKutyu.masolat());
             
         }
-        
     }//GEN-LAST:event_kutyuJComboBoxActionPerformed
 
     private void emberJListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emberJListMouseClicked
+        
         
         Ember valasztott = (Ember) emberJList.getSelectedValue();
         DiagnozisjLabel.setText(valasztott.diagnozis());
@@ -212,6 +212,8 @@ public class MobilJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_emberJListMouseClicked
 
     private void hasznalatjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hasznalatjButtonActionPerformed
+        
+        if(emberekModel.getSize() < 1){ return; }
         
         Ember randomEmber;
         Kutyu randomKutyu;
@@ -233,12 +235,16 @@ public class MobilJPanel extends javax.swing.JPanel {
                 }
             }
         }
+        
+        emberJList.updateUI();
     }//GEN-LAST:event_hasznalatjButtonActionPerformed
 
     private void rendezesjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rendezesjButtonActionPerformed
         
         //Ember.rendezett = true;
         Ember.setKiegeszitoAdat(Ember.KiegeszitoAdat.HUVELYKUJJ_ERO);
+        
+        
         
     }//GEN-LAST:event_rendezesjButtonActionPerformed
 

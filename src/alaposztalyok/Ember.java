@@ -79,7 +79,7 @@ public class Ember {
     public String toString() {
         switch(kiegeszitoAdat){
             case HUVELYKUJJ_ERO:
-                return nev + "; hüvelykerő:" + huvelykujjEro();
+                return nev + "; hüvelykerő: " + huvelykujjEro();
                 
             case SZEMELYI_SZAM:
                 return nev + " (" + getSzemSzam() + ')';

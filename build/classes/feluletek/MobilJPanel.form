@@ -63,7 +63,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="DiagnozisjLabel" min="-2" pref="27" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -133,7 +133,7 @@
     <Component class="javax.swing.JLabel" name="DiagnozisjLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="                     "/>
+        <Property name="text" type="java.lang.String" value="K&#xe9;rem v&#xe1;lasszon egy szem&#xe9;lyt a diagn&#xf3;zishoz!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="rendezesjButton">
