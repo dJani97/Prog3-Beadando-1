@@ -6,7 +6,7 @@
 package alaposztalyok;
 
 /**
- *
+ * Comparable<Kutyu> -t hozzáadni!
  * @author djani
  */
 public class Mobiltelefon implements Kutyu {

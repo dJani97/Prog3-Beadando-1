@@ -43,7 +43,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        mobilJPanel1 = new feluletek.MobilJPanel();
+        mobilJPanel2 = new feluletek.MobilJPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         fajlMenu = new javax.swing.JMenu();
         beolvasasMenuPont = new javax.swing.JMenuItem();
@@ -54,6 +54,9 @@ public class MainFrame extends javax.swing.JFrame {
         sugoMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        mobilJPanel2.setMinimumSize(new java.awt.Dimension(480, 300));
+        getContentPane().add(mobilJPanel2, java.awt.BorderLayout.CENTER);
 
         fajlMenu.setText("Fájl");
 
@@ -108,23 +111,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mobilJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mobilJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -133,7 +119,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_kilepesMenuPontActionPerformed
 
     private void beolvasasMenuPontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beolvasasMenuPontActionPerformed
-        mobilJPanel1.fixFajlbol();
+        mobilJPanel2.fixFajlbol();
     }//GEN-LAST:event_beolvasasMenuPontActionPerformed
 
     private void sugoMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sugoMenuMousePressed
@@ -142,13 +128,13 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void novekvojRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novekvojRadioButtonActionPerformed
         alaposztalyok.Rendezo.setNovekvo(true);
-        mobilJPanel1.rendezes();
+        mobilJPanel2.rendezes();
 
     }//GEN-LAST:event_novekvojRadioButtonActionPerformed
 
     private void csokkenojRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csokkenojRadioButtonActionPerformed
         alaposztalyok.Rendezo.setNovekvo(false);
-        mobilJPanel1.rendezes();
+        mobilJPanel2.rendezes();
     }//GEN-LAST:event_csokkenojRadioButtonActionPerformed
 
     /**
@@ -206,7 +192,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu fajlMenu;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem kilepesMenuPont;
-    private feluletek.MobilJPanel mobilJPanel1;
+    private feluletek.MobilJPanel mobilJPanel2;
     private javax.swing.JRadioButtonMenuItem novekvojRadioButton;
     private javax.swing.JMenu rendezesMenu;
     private javax.swing.JMenu sugoMenu;
